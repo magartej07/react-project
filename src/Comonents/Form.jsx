@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import AddIcons from "./icons/AddIcons";
+import { AppContext } from "../AppContext";
 
-const Form = ({setTodos, todos}) => {
+const Form = () => {
+    const {todos,setTodos}= useContext(AppContext)
     const [input,setInput]= useState("")
     const onSubmit = (e)=>{
         e.preventDefault()
+        const id = todos.length ? todos[0].id + 1 : 1
         const newTodos = {
-            id: todos.length + 1,
+            id: id,
             title:input,
             completed:false,
         }
@@ -23,7 +26,8 @@ const Form = ({setTodos, todos}) => {
         className="h-10 flex-1 border-0 bg-transparent px-2 outline-none"
       />
       <button type="submit" className="h-10 px-2">
-        <AddIcons className="h-6 w-6"></AddIcons>
+        <AddIcons className="h-6 w-6"
+        ></AddIcons>
       </button>
     </form>
   );

@@ -1,6 +1,9 @@
 import { CheckIcon, TrashIcon } from "lucide-react";
+import { useContext } from "react";
+import { AppContext } from "../AppContext";
 
-const Todo = ({ todo, setTodos }) => {
+const Todo = ({ todo }) => {
+    const {setTodos}= useContext(AppContext)
   return (
     <div className="flex h-12 items-center justify-between rounded border border-gray-600 px-2 text-white">
       <div className="flex gap-3">

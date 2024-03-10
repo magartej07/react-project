@@ -1,4 +1,8 @@
-const Filter = ({ todos, setFilterTodos }) => {
+import { useContext } from "react";
+import { AppContext } from "../AppContext";
+
+const Filter = () => {
+    const {todos,setFilterTodos}= useContext(AppContext)
   return (
     <div className="my-3 flex items-center justify-between text-white">
       <h2 className="text-xl font-bold">YOUR TODOS</h2>
